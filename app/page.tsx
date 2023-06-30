@@ -19,9 +19,9 @@ export default function Home() {
   const pokemonUrlPairList: PokemonNameURLPair[] = data.results
 
   return (
-    <div className="my-4 space-x-4">
+    <div className="my-4 grid grid-cols-8 gap-4">
       {pokemonUrlPairList.map(({ name }) => {
-        return <Pokemon pokemonName={name} />
+        return <Pokemon key={name} pokemonName={name} />
       })}
     </div>
   )
