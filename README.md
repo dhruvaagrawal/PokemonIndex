@@ -1,22 +1,20 @@
-# next-template
+# Pokemon Index
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
-
-## Usage
-
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+This is a Next.js application, that is being built with the sole purpose of:
+1. Understanding server-side and client-side rendering in Next.js.
+2. Understanding how to make API calls using Tanstack Query.
+3. Understanding state management in Next.js.
+4. Understanding how to deploy to Vercel, using a custom domain.
 
 ## Features
 
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
+- An index of all the pokemons available.
+- Allow the user to search the pokemon by their names, and their abilities.
+- Sort the pokemons by their abilities and their powers.
+- Create personal indexes of pokemons based on certain limitations and criteria.
 
-## License
+## Uses:
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+- Next.js 13
+- Tanstack Query
+- Typescript
