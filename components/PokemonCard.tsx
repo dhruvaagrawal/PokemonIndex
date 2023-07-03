@@ -5,12 +5,13 @@ import { getPokemonDetailsByName } from "@/lib/pokemon.api"
 import { capitalize, cn } from "@/lib/utils"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import PokemonImage from "@/components/PokemonImage"
 
 interface PokemonProps {
   pokemonName: string
 }
 
-const Pokemon: FC<PokemonProps> = async ({ pokemonName }) => {
+const PokemonCard: FC<PokemonProps> = async ({ pokemonName }) => {
   const pokemon = await getPokemonDetailsByName(pokemonName)
 
   if (!pokemon) {
@@ -36,10 +37,10 @@ const Pokemon: FC<PokemonProps> = async ({ pokemonName }) => {
           <CardTitle>{capitalize(name)}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 items-center justify-center">
-          <img
-            src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${id}.svg`}
-            alt={name}
-            className="flex w-24 h-24 justify-self-center"
+          <PokemonImage
+            pokemonId={id}
+            pokemonName={name}
+            className="w-24 h-24"
           />
           <Separator />
           <div className="grid grid-cols-[15px_1fr]">
@@ -60,4 +61,4 @@ const Pokemon: FC<PokemonProps> = async ({ pokemonName }) => {
   )
 }
 
-export default Pokemon
+export default PokemonCard

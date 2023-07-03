@@ -29,3 +29,16 @@ export const getPokemonDetailsByName = async (
 
   return res.json()
 }
+
+export const getPokemonDetailsById = async (
+  pokemonId: number
+): Promise<Pokemon> => {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data")
+  }
+
+  return res.json()
+}
