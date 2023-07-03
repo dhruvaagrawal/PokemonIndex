@@ -1,4 +1,11 @@
 type URL = string
+type StatKeys =
+  | "speed"
+  | "hp"
+  | "attack"
+  | "defense"
+  | "special-attack"
+  | "special-defense"
 
 export interface PaginatedPokemon {
   count: number
@@ -36,6 +43,11 @@ export interface Ability {
 
 export interface PokemonNameURLPair {
   name: string
+  url: URL
+}
+
+export interface PokemonStatNameURLPair {
+  name: StatKeys
   url: URL
 }
 
@@ -85,7 +97,7 @@ export interface Sprites {
 export interface Stat {
   base_stat: number
   effort: number
-  stat: PokemonNameURLPair
+  stat: PokemonStatNameURLPair
 }
 
 export interface PokemonType {

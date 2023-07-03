@@ -4,6 +4,8 @@ import { getPokemonDetailsById } from "@/lib/pokemon.api"
 import { capitalize, cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import PokemonImage from "@/components/PokemonImage"
+import PokemonStats from "@/components/PokemonStats"
+import PokemonTypeInfo from "@/components/PokemonTypeInfo"
 
 interface CurrentPokemonProps {
   params: {
@@ -13,26 +15,22 @@ interface CurrentPokemonProps {
 
 const CurrentPokemon: FC<CurrentPokemonProps> = async ({ params }) => {
   const pokemon = await getPokemonDetailsById(Number(params.pokemonId))
-  const { weight, name, id, height, types } = pokemon
+  const { weight, name, id, height, types, stats } = pokemon
 
   const weightInKg = (weight * 0.1).toFixed(1)
   const heightInM = (height * 0.1).toFixed(1)
 
   const { name: primaryType } = types[0].type
 
+  console.log(name, "stats:", stats)
+
   return (
     <div className={`p-4 bg-electric min-w-screen min-h-screen flex`}>
       <div className="w-2/5 flex justify-center transform translate-y-48">
         <div>
           <p className="text-7xl text-center font-black">{capitalize(name)}</p>
-          <div className="flex mt-4">
-            <h3 className="mr-2 flex items-center">Types:</h3>
-            {types.map(({ type }) => (
-              <Badge className={cn("h-10 text-md mr-2", `bg-slate-900`)}>
-                {capitalize(type.name)}
-              </Badge>
-            ))}
-          </div>
+          <PokemonTypeInfo types={types} className="flex mt-4" />
+          <PokemonStats stats={stats} className="mt-4" />
         </div>
       </div>
       <div className="w-2/5 flex justify-center items-center relative">
