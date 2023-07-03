@@ -1,16 +1,10 @@
-"use client"
-
 import { PokemonNameURLPair } from "@/types/pokemon"
 import { PAGINATION_LIMIT } from "@/lib/constants"
-import { getPokemons } from "@/lib/pokemon.api"
+import { getPokemonList } from "@/lib/pokemon.api"
 import Pokemon from "@/components/Pokemon"
 
-export default function Home() {
-  const { data, error, isLoading } = getPokemons(PAGINATION_LIMIT, 0)
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
+export default async function Home() {
+  const data = await getPokemonList(PAGINATION_LIMIT, 0)
 
   if (!data) {
     return null

@@ -1,42 +1,44 @@
-"use client"
-
 import { FC } from "react"
 import Link from "next/link"
 
-import { getPokemonByName } from "@/lib/pokemon.api"
-import { capitalize } from "@/lib/utils"
+import { getPokemonDetailsByName } from "@/lib/pokemon.api"
+import { capitalize, cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
 interface PokemonProps {
   pokemonName: string
 }
 
-const Pokemon: FC<PokemonProps> = ({ pokemonName }) => {
-  const { data: pokemon, error, isLoading } = getPokemonByName(pokemonName)
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
+const Pokemon: FC<PokemonProps> = async ({ pokemonName }) => {
+  const pokemon = await getPokemonDetailsByName(pokemonName)
 
   if (!pokemon) {
     return null // Don't render anything if pokemon doesn't exist
   }
 
-  const weightInKg = (pokemon.weight * 0.1).toFixed(1)
-  const heightInM = (pokemon.height * 0.1).toFixed(1)
+  const { weight, name, id, height, types } = pokemon
+
+  const weightInKg = (weight * 0.1).toFixed(1)
+  const heightInM = (height * 0.1).toFixed(1)
+
+  const { name: primaryType } = types[0].type
 
   return (
-    <Link href={`/pokemons/${pokemon.id}`}>
-      <Card className="inline-block w-full transition-all transform duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
+    <Link href={`/pokemons/${id}`}>
+      <Card
+        className={cn(
+          "inline-block w-full transition-all transform duration-500 ease-in-out hover:scale-105 hover:shadow-2xl",
+          `bg-${primaryType}`
+        )}
+      >
         <CardHeader className="flex items-center pb-4">
-          <CardTitle>{capitalize(pokemon.name)}</CardTitle>
+          <CardTitle>{capitalize(name)}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 items-center justify-center">
           <img
-            src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-            alt={pokemon.name}
+            src={`https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${id}.svg`}
+            alt={name}
             className="flex w-24 h-24 justify-self-center"
           />
           <Separator />
