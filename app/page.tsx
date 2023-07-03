@@ -1,7 +1,7 @@
 import { PokemonNameURLPair } from "@/types/pokemon"
 import { PAGINATION_LIMIT } from "@/lib/constants"
 import { getPokemonList } from "@/lib/pokemon.api"
-import PokemonCard from "@/components/PokemonCard"
+import PokemonCard from "@/components/pokemon/PokemonCard"
 
 export default async function Home() {
   const data = await getPokemonList(PAGINATION_LIMIT, 0)

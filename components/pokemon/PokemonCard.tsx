@@ -5,7 +5,7 @@ import { getPokemonDetailsByName } from "@/lib/pokemon.api"
 import { capitalize, cn } from "@/lib/utils"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import PokemonImage from "@/components/PokemonImage"
+import PokemonImage from "@/components/pokemon/PokemonImage"
 
 interface PokemonProps {
   pokemonName: string

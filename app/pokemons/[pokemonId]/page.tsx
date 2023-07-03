@@ -1,35 +1,34 @@
 import { FC } from "react"
 
 import { getPokemonDetailsById } from "@/lib/pokemon.api"
-import { capitalize, cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
-import PokemonImage from "@/components/PokemonImage"
-import PokemonStats from "@/components/PokemonStats"
-import PokemonTypeInfo from "@/components/PokemonTypeInfo"
+import { capitalize } from "@/lib/utils"
+import PokemonImage from "@/components/pokemon/PokemonImage"
+import PokemonSpeciesInfo from "@/components/pokemon/PokemonSpeciesInfo"
+import PokemonStats from "@/components/pokemon/PokemonStats"
 
-interface CurrentPokemonProps {
+interface PokemonDetailProps {
   params: {
     pokemonId: string
   }
 }
 
-const CurrentPokemon: FC<CurrentPokemonProps> = async ({ params }) => {
+const PokemonDetail: FC<PokemonDetailProps> = async ({ params }) => {
   const pokemon = await getPokemonDetailsById(Number(params.pokemonId))
   const { weight, name, id, height, types, stats } = pokemon
 
   const weightInKg = (weight * 0.1).toFixed(1)
   const heightInM = (height * 0.1).toFixed(1)
 
-  const { name: primaryType } = types[0].type
-
-  console.log(name, "stats:", stats)
+  // const { name: primaryType } = types[0].type
 
   return (
     <div className={`p-4 bg-electric min-w-screen min-h-screen flex`}>
-      <div className="w-2/5 flex justify-center transform translate-y-48">
+      <div className="w-2/5 flex justify-center transform translate-y-12">
         <div>
-          <p className="text-7xl text-center font-black">{capitalize(name)}</p>
-          <PokemonTypeInfo types={types} className="flex mt-4" />
+          <h1 className="text-7xl text-center font-black">
+            {capitalize(name)}
+          </h1>
+          <PokemonSpeciesInfo pokemonId={id} types={types} />
           <PokemonStats stats={stats} className="mt-4" />
         </div>
       </div>
@@ -59,4 +58,4 @@ const CurrentPokemon: FC<CurrentPokemonProps> = async ({ params }) => {
   )
 }
 
-export default CurrentPokemon
+export default PokemonDetail

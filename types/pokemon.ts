@@ -7,6 +7,18 @@ type StatKeys =
   | "special-attack"
   | "special-defense"
 
+type Language =
+  | "zh-Hans"
+  | "ja"
+  | "es"
+  | "en"
+  | "de"
+  | "it"
+  | "fr"
+  | "zh-Hant"
+  | "ko"
+  | "ja-Hrkt"
+
 export interface PaginatedPokemon {
   count: number
   next: URL | null
@@ -23,7 +35,7 @@ export interface Pokemon {
   order: number
   weight: number
   abilities: Ability[]
-  forms: Form[]
+  forms: PokemonForm[]
   game_indices: GameIndices[]
   held_items: HeldItem[]
   location_area_encounters: string
@@ -35,7 +47,7 @@ export interface Pokemon {
   past_types: PastType[]
 }
 
-export interface Ability {
+interface Ability {
   is_hidden: boolean
   slot: number
   ability: PokemonNameURLPair
@@ -46,12 +58,12 @@ export interface PokemonNameURLPair {
   url: URL
 }
 
-export interface PokemonStatNameURLPair {
+interface PokemonStatNameURLPair {
   name: StatKeys
   url: URL
 }
 
-export interface Form extends PokemonNameURLPair {}
+interface PokemonForm extends PokemonNameURLPair {}
 
 export interface GameIndices {
   game_index: number
@@ -108,4 +120,73 @@ export interface PokemonType {
 export interface PastType {
   generation: PokemonNameURLPair
   types: PokemonType[]
+}
+
+export interface PokemonSpecies {
+  id: number
+  name: string
+  order: number
+  gender_rate: number
+  capture_rate: number
+  base_happiness: number
+  is_baby: boolean
+  is_legendary: boolean
+  is_mythical: boolean
+  hatch_counter: number
+  has_gender_differences: boolean
+  forms_switchable: boolean
+  growth_rate: PokemonNameURLPair
+  pokedex_numbers: PokedexNumber[]
+  egg_groups: PokemonNameURLPair[]
+  color: PokemonNameURLPair
+  shape: PokemonNameURLPair
+  evolves_from_species: PokemonNameURLPair
+  evolution_chain: EvolutionChain
+  habitat: any
+  generation: PokemonNameURLPair
+  names: Name[]
+  flavor_text_entries: FlavorTextEntry[]
+  form_descriptions: FormDescription[]
+  genera: Genera[]
+  varieties: PokemonObj[]
+}
+
+interface PokemonObj {
+  is_default: boolean
+  pokemon: PokemonNameURLPair
+}
+
+interface Genera {
+  genus: string
+  language: PokemonNameURLPair
+}
+
+interface FormDescription {
+  description: string
+  language: PokemonNameURLPair
+}
+
+interface FlavorTextEntry {
+  flavor_text: string
+  language: LanguageDetail
+  version: PokemonNameURLPair
+}
+
+interface Name {
+  name: string
+  language: PokemonNameURLPair
+}
+
+interface EvolutionChain {
+  url: URL
+}
+
+interface PokedexNumber {
+  entry_number: number
+  pokedex: PokemonNameURLPair
+}
+
+interface LanguageDetail {
+  name: Language
+  url: URL
 }
