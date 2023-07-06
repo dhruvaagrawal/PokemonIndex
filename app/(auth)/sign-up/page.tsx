@@ -3,19 +3,18 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { UserAuthForm } from "@/components/auth/UserAuthForm"
+import { SignUpForm } from "@/components/auth/SignUpForm"
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Sign Up",
 }
 
-export default function AuthenticationPage() {
+export default function SignUpPage() {
   return (
     <>
       <div className="container relative hidden flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-5 lg:px-0">
         <Link
-          href="/examples/authentication"
+          href="/login"
           className={cn(
             buttonVariants({ variant: "ghost" }),
             "absolute right-4 top-4 md:right-8 md:top-8"
@@ -32,26 +31,26 @@ export default function AuthenticationPage() {
               className="block h-screen object-cover object-center"
             />
             {/* This is the element we add for creating the overlay: */}
-            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">
                 &ldquo;
                 <a
-                  href="https://unsplash.com/photos/I7ipAK_JggQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  href="https://unsplash.com/photos/ssVt_BoJV2U?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                   className="underline"
                 >
                   Photo
                 </a>{" "}
                 by{" "}
                 <a
-                  href="https://unsplash.com/de/@giorgiotrovato?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  href="https://unsplash.com/@branden_skeli?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                   className="underline"
                 >
-                  Giorgio Trovato
+                  Branden Skeli
                 </a>{" "}
-                on Unsplash &rdquo;
+                on Unsplash&rdquo;
               </p>
             </blockquote>
           </div>
@@ -66,7 +65,7 @@ export default function AuthenticationPage() {
                 Enter your email below to create your account
               </p>
             </div>
-            <UserAuthForm />
+            <SignUpForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link
