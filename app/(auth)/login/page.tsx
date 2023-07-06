@@ -1,8 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
+import { siteConfig } from "@/config/site"
 import { LoginForm } from "@/components/auth/LoginForm"
 
 export const metadata: Metadata = {
@@ -50,7 +49,7 @@ export default function LoginPage() {
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col text-left">
               <p className="text-2xl font-medium tracking-tight">Welcome to</p>
-              <p className="text-4xl font-extrabold">Pokemon Index</p>
+              <p className="text-4xl font-extrabold">{siteConfig.name}</p>
             </div>
             <LoginForm />
             <p className="px-8 text-center text-sm text-muted-foreground">

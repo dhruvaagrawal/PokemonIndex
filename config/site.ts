@@ -1,8 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Pokemon Index",
-  description: "This is a Pokemon Index app",
+  name: "Pokémonopoly",
+  description:
+    "This is a Pokemon app wherein users will be able to trade their pokémons with other users",
   mainNav: [],
   links: {
     github: "https://github.com/shadcn/ui",
