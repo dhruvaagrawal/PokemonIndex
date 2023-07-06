@@ -1,22 +1,49 @@
 "use client"
 
 import { FC } from "react"
+import Link from "next/link"
 
-import { Button } from "@/components/ui/button"
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
 import { Icons } from "@/components/icons"
 
 interface ProfileDropdownProps {}
 
 const ProfileDropdown: FC<ProfileDropdownProps> = ({}) => {
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={() => console.log("Profile opened")}
-    >
-      <Icons.user className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <Menubar className="border-transparent">
+      <MenubarMenu>
+        <MenubarTrigger>
+          <Icons.user />
+          <span className="sr-only">Toggle theme</span>
+        </MenubarTrigger>
+        <MenubarContent>
+          <MenubarRadioGroup value="benoit">
+            <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+            <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+            <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+          </MenubarRadioGroup>
+          <MenubarSeparator />
+          <Link href="/users/1/edit">
+            <MenubarItem inset>Edit</MenubarItem>
+          </Link>
+          <MenubarSeparator />
+          <Link href="/users/1/add">
+            <MenubarItem inset>Add Profile</MenubarItem>
+          </Link>
+          <MenubarSeparator />
+          <MenubarItem inset>Logout</MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+    </Menubar>
   )
 }
 
