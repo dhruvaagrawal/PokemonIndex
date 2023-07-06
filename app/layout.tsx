@@ -5,7 +5,6 @@ import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import Providers from "@/components/Providers"
-import { Navbar } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 export const metadata: Metadata = {
@@ -42,7 +41,6 @@ export default function RootLayout({
         >
           <Providers>
             <div className="relative flex min-h-screen flex-col">
-              <Navbar />
               <div className="flex-1">{children}</div>
             </div>
             <TailwindIndicator />
