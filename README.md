@@ -1,4 +1,4 @@
-# Pokemon Index
+# Pokémonopoly
 
 This is a Next.js application, that is being built with the sole purpose of:
 1. Understanding server-side and client-side rendering in Next.js.
@@ -8,10 +8,12 @@ This is a Next.js application, that is being built with the sole purpose of:
 
 ## Features
 
+- User authentication flow.
 - An index of all the pokemons available.
 - Allow the user to search the pokemon by their names, and their abilities.
 - Sort the pokemons by their abilities and their powers.
 - Create personal indexes of pokemons based on certain limitations and criteria.
+- Users will be allowed to trade their pokémons with other users.
 
 ## Uses:
 
