@@ -1,10 +1,11 @@
-import { Moon, SunMedium, Twitter } from "lucide-react"
+import { Moon, SunMedium, UserCircle2 } from "lucide-react"
 
 type IconProps = React.HTMLAttributes<SVGElement>
 
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
+  user: UserCircle2,
   twitter: (props: IconProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 204" {...props}>
       <path

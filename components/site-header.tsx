@@ -6,6 +6,8 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+import ProfileDropdown from "./users/ProfileDropdown"
+
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -29,6 +31,7 @@ export function Navbar() {
               </div>
             </Link>
             <ThemeToggle />
+            <ProfileDropdown />
           </nav>
         </div>
       </div>
