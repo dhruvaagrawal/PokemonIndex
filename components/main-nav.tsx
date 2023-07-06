@@ -14,7 +14,7 @@ export function MainNav({ items }: MainNavProps) {
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
         <Image
-          src="/assets/pokemon-symbol.png"
+          src="/assets/pokeball.png"
           alt="Pokemon Symbol"
           width={24}
           height={24}
