@@ -76,14 +76,6 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
           )}{" "}
           Google
         </Button>
-        <Button variant="outline" type="button" disabled={isLoading}>
-          {isLoading ? (
-            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            <Icons.twitter className="mr-2 h-4 w-4" />
-          )}{" "}
-          Twitter
-        </Button>
       </div>
     </div>
   )
