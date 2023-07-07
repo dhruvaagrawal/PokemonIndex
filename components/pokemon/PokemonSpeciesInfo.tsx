@@ -5,9 +5,6 @@ import { getPokemonSpeciesById } from "@/lib/pokemon.api"
 import { capitalize, cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 
-import { Card, CardContent } from "../ui/card"
-import VersionDropdown from "./VersionDropdown"
-
 interface PokemonSpeciesInfoProps extends HTMLAttributes<HTMLDivElement> {
   pokemonId: number
   types: PokemonType[]
