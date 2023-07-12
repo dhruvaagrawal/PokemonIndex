@@ -24,7 +24,7 @@ const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
           <CardHeader className="text-center">
             <p>Pending Requests</p>
           </CardHeader>
-          <CardContent className="gap-2">
+          <CardContent className="space-y-2">
             {friends.map(({ id, name, age }) => (
               <Card key={id} className="h-10 flex items-center justify-center">
                 {name}: {age}
@@ -38,7 +38,7 @@ const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
           <CardHeader className="text-center">
             <p>Most Interacted People</p>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-2">
             {friends.map(({ id, name, age }) => (
               <Card key={id} className="h-10 flex items-center justify-center">
                 {name}: {age}
