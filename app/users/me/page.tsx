@@ -11,21 +11,20 @@ interface MeProps {}
 
 const Me: FC<MeProps> = ({}) => {
   return (
-    <>
-      <Navbar />
-      <div className="mt-4 mx-4 grid grid-cols-4 gap-4">
-        <div className="flex flex-col lg:col-span-3 gap-4">
-          <ProfileOverview className="flex-grow" />
-          <FavoritePokemons className="flex-grow" />
-          <div className="flex flex-col">
-            <PokemonComparisonChart />
-            <ActivityChart />
-            <div></div>
-          </div>
+    <div className="mt-4 mx-4 grid grid-cols-4 gap-4">
+      <div className="flex flex-col lg:col-span-3 gap-4">
+        <ProfileOverview className="flex-grow" />
+        <FavoritePokemons className="flex-grow" />
+        <div className="flex">
+          <PokemonComparisonChart />
+          <ActivityChart />
+          <div></div>
         </div>
-        <FriendsSection className="lg:col-span-1 h-full" />
       </div>
-    </>
+      <div className="lg:col-span-1 h-full">
+        <FriendsSection />
+      </div>
+    </div>
   )
 }
 
