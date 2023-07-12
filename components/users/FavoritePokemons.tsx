@@ -1,9 +1,13 @@
-import { FC } from "react"
+import { FC, HTMLAttributes } from "react"
 
-interface FavoritePokemonsProps {}
+import { cn } from "@/lib/utils"
 
-const FavoritePokemons: FC<FavoritePokemonsProps> = ({}) => {
-  return <div>FavoritePokemons</div>
+import { Card } from "../ui/card"
+
+interface FavoritePokemonsProps extends HTMLAttributes<HTMLDivElement> {}
+
+const FavoritePokemons: FC<FavoritePokemonsProps> = ({ className }) => {
+  return <Card className={cn(className)}>FavoritePokemons</Card>
 }
 
 export default FavoritePokemons

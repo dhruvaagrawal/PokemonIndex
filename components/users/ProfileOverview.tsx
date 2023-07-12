@@ -1,9 +1,13 @@
-import { FC } from "react"
+import { FC, HTMLAttributes } from "react"
 
-interface ProfileOverviewProps {}
+import { cn } from "@/lib/utils"
 
-const ProfileOverview: FC<ProfileOverviewProps> = ({}) => {
-  return <div>ProfileOverview</div>
+import { Card } from "../ui/card"
+
+interface ProfileOverviewProps extends HTMLAttributes<HTMLDivElement> {}
+
+const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
+  return <Card className={cn(className)}>ProfileOverview</Card>
 }
 
 export default ProfileOverview
