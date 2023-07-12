@@ -65,15 +65,17 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
                 </Balancer>
               </blockquote>
             </div>
+            <div className="ml-2 col-span-2">
+              <Card className="flex flex-grow overflow-auto p-2 space-x-4">
+                {dummyBadgesArray.map(({ name, image }) => (
+                  <div className="rounded-full">
+                    <Image src={image} alt={name} width={100} height={40} />
+                  </div>
+                ))}
+              </Card>
+            </div>
           </div>
         </div>
-        <Card className="flex flex-grow overflow-auto">
-          {dummyBadgesArray.map(({ name, image }) => (
-            <div className="rounded-full">
-              <Image src={image} alt={name} width={40} height={40} />
-            </div>
-          ))}
-        </Card>
       </div>
     </div>
   )
