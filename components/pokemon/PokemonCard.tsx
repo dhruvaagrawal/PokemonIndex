@@ -1,5 +1,6 @@
 import { FC } from "react"
 import Link from "next/link"
+import { Balancer } from "react-wrap-balancer"
 
 import { getPokemonDetailsByName } from "@/lib/pokemon.api"
 import { capitalize, cn } from "@/lib/utils"
@@ -46,13 +47,13 @@ const PokemonCard: FC<PokemonProps> = async ({ pokemonName }) => {
           <div className="grid grid-cols-[15px_1fr]">
             <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
             <p className="text-sm font-medium leading-none">
-              Weight: {weightInKg}kg
+              <Balancer>Weight: {weightInKg}kg</Balancer>
             </p>
           </div>
           <div className="grid grid-cols-[15px_1fr]">
             <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
             <p className="text-sm font-medium leading-none">
-              Height: {heightInM}m
+              <Balancer>Height: {heightInM}m</Balancer>
             </p>
           </div>
         </CardContent>

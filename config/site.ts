@@ -6,6 +6,6 @@ export const siteConfig = {
     "This is a Pokemon app wherein users will be able to trade their pokémons with other users",
   mainNav: [],
   links: {
-    github: "https://github.com/shadcn/ui",
+    github: "https://github.com/dhruvaagrawal/Pokemonopoly",
   },
 }
