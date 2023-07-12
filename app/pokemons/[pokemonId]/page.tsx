@@ -38,6 +38,8 @@ const PokemonDetail: FC<PokemonDetailProps> = async ({ params }) => {
             pokemonId={id}
             pokemonName={name}
             className="w-96 h-full"
+            height={384}
+            width={384}
           />
         </div>
         {/* This is the top horizontal line component */}

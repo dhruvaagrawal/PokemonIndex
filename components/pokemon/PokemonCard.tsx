@@ -30,7 +30,7 @@ const PokemonCard: FC<PokemonProps> = async ({ pokemonName }) => {
     <Link href={`/pokemons/${id}`}>
       <Card
         className={cn(
-          "inline-block w-full transition-all transform duration-500 ease-in-out hover:scale-105 hover:shadow-2xl border-transparent",
+          "inline-block w-full transition-all transform duration-500 ease-in-out hover:scale-105 hover:shadow-2xl",
           `bg-${primaryType}`
         )}
       >
@@ -42,6 +42,8 @@ const PokemonCard: FC<PokemonProps> = async ({ pokemonName }) => {
             pokemonId={id}
             pokemonName={name}
             className="w-24 h-24"
+            height={96}
+            width={96}
           />
           <Separator />
           <div className="grid grid-cols-[15px_1fr]">
