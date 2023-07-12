@@ -21,8 +21,8 @@ const Me: FC<MeProps> = ({}) => {
           <div></div>
         </div>
       </div>
-      <div className="lg:col-span-1 h-full">
-        <FriendsSection />
+      <div className="lg:col-span-1 flex">
+        <FriendsSection className="flex-grow h-full" />{" "}
       </div>
     </div>
   )
