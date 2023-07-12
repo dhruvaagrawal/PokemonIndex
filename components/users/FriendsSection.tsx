@@ -1,12 +1,13 @@
-import { FC } from "react"
+import { FC, HTMLAttributes } from "react"
 
+import { cn } from "@/lib/utils"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-interface FriendsSectionProps {}
+interface FriendsSectionProps extends HTMLAttributes<HTMLDivElement> {}
 
-const FriendsSection: FC<FriendsSectionProps> = ({}) => {
+const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
   return (
-    <Card className="">
+    <Card className={cn("rounded-xl", className)}>
       <CardHeader className="text-center">
         <CardTitle>Friends Section</CardTitle>
       </CardHeader>
