@@ -31,11 +31,11 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
   return (
     <div
       className={cn(
-        "rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm dark:border-slate-800 dark:bg-background dark:text-slate-50 grid grid-cols-5 p-4",
+        "rounded-lg border-transparent shadow-xl bg-white text-slate-950 dark:shadow-lg dark:shadow-slate-800 dark:bg-background dark:text-slate-50 grid grid-cols-6 auto-rows-min p-4",
         className
       )}
     >
-      <div className="flex lg:col-span-1">
+      <div className="lg:col-span-1">
         <Image
           src="/assets/user.jpg"
           alt="User"
@@ -44,36 +44,34 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
           className="rounded-lg shadow-2xl"
         />
       </div>
-      <div className="lg:col-span-4 flex flex-col">
-        <div className="flex flex-grow-0">
-          <div className="grid grid-cols-2 my-2 gap-4">
-            <div className="flex col-span-2 justify-center space-x-4">
-              <div className="text-center">
-                <h1 className="text-5xl font-semibold">Dhruva's Overview</h1>
-              </div>
-              <div className="space-x-2 flex items-center">
-                <Badge variant="outline">Google</Badge>
-                <Badge variant="outline">Github</Badge>
-                <Badge variant="outline">Twitter</Badge>
-              </div>
+      <div className="flex flex-col lg:col-span-5 flex-auto">
+        <div className="grid grid-cols-2 my-2 gap-4">
+          <div className="flex col-span-2 justify-center space-x-4">
+            <div className="text-center">
+              <h1 className="text-5xl font-semibold">Dhruva's Overview</h1>
             </div>
-            <div className="col-span-2 p-2 ml-2 text-center rounded-md border dark:border-slate-800 dark:bg-background dark:text-slate-50">
-              <blockquote className="italic text-md text-gray-500">
-                <Balancer>
-                  &#8220; just a guy, coding his way, through this messed up
-                  world, one incorrectly labelled variable at a time.&#8221;
-                </Balancer>
-              </blockquote>
+            <div className="space-x-2 flex items-center">
+              <Badge variant="outline">Google</Badge>
+              <Badge variant="outline">Github</Badge>
+              <Badge variant="outline">Twitter</Badge>
             </div>
-            <div className="ml-2 col-span-2">
-              <Card className="flex flex-grow overflow-auto p-2 space-x-4">
-                {dummyBadgesArray.map(({ name, image }) => (
-                  <div className="rounded-full">
-                    <Image src={image} alt={name} width={100} height={40} />
-                  </div>
-                ))}
-              </Card>
-            </div>
+          </div>
+          <div className="col-span-2 p-2 ml-2 text-center rounded-md border dark:border-slate-800 dark:bg-background dark:text-slate-50">
+            <blockquote className="italic text-md text-gray-500">
+              <Balancer>
+                &#8220; just a guy, coding his way, through this messed up
+                world, one incorrectly labelled variable at a time.&#8221;
+              </Balancer>
+            </blockquote>
+          </div>
+          <div className="ml-2 col-span-2">
+            <Card className="flex flex-grow overflow-auto p-2 space-x-4">
+              {dummyBadgesArray.map(({ name, image }) => (
+                <div className="rounded-full">
+                  <Image src={image} alt={name} width={90} height={40} />
+                </div>
+              ))}
+            </Card>
           </div>
         </div>
       </div>
