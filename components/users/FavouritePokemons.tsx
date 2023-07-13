@@ -6,7 +6,7 @@ import { cardStyles, innerCardStyles } from "@/config/common.styles"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 
-interface FavoritePokemonsProps extends HTMLAttributes<HTMLDivElement> {}
+interface FavouritePokemonsProps extends HTMLAttributes<HTMLDivElement> {}
 
 const dummyPokemonData = [
   {
@@ -65,35 +65,39 @@ const dummyPokemonData = [
   },
 ]
 
-const FavoritePokemons: FC<FavoritePokemonsProps> = ({ className }) => {
+const FavouritePokemons: FC<FavouritePokemonsProps> = ({ className }) => {
   return (
-    <div
-      className={cn(
-        cardStyles,
-        "grid overflow-auto p-4 gap-2 grid-cols-10 text-slate-950",
-        className
-      )}
-    >
-      {dummyPokemonData.map(({ name, image }) => (
-        <div className={cn(innerCardStyles, "col-span-1")}>
-          <Image src={image} alt={name} width={100} height={100} />
-        </div>
-      ))}
-      <div
-        className={cn(
-          innerCardStyles,
-          "col-span-1 grid-cols-5 text-gray-400 dark:text-gray-400"
-        )}
-      >
-        <div className="col-span-3 flex justify-end">
-          <Balancer>View More</Balancer>
-        </div>
-        <div className="col-span-2 flex justify-start group-hover:transform group-hover:translate-x-16 transition-transform duration-200 ease-in-out">
-          <Icons.right />
+    <div className={cn(cardStyles, className)}>
+      <div className="px-4 pt-4 text-center">
+        <h1 className="text-4xl font-bold">Favourite Pokémons</h1>
+      </div>
+      <div className="grid grid-cols-10 overflow-auto p-4 gap-2">
+        {dummyPokemonData.map(({ name, image }) => (
+          <div
+            className={cn(
+              innerCardStyles,
+              "col-span-1 cursor-pointer transform duration-500 hover:scale-90"
+            )}
+          >
+            <Image src={image} alt={name} width={100} height={100} />
+          </div>
+        ))}
+        <div
+          className={cn(
+            innerCardStyles,
+            "col-span-1 grid-cols-5 text-gray-400 dark:text-gray-400 transform duration-500 transition-all hover:justify-items-center cursor-pointer"
+          )}
+        >
+          <div className="col-span-3 flex justify-end">
+            <Balancer>View More</Balancer>
+          </div>
+          <div className="col-span-2 flex justify-start pl-1">
+            <Icons.right />
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default FavoritePokemons
+export default FavouritePokemons
