@@ -100,6 +100,9 @@ module.exports = {
             500: "#F7FDB1",
             700: "#EEF3AD",
           },
+          blue: {
+            300: "#B8E8FC",
+          },
         },
       },
       borderRadius: {
