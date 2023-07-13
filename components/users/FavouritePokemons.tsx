@@ -85,7 +85,7 @@ const FavouritePokemons: FC<FavouritePokemonsProps> = ({ className }) => {
         <div
           className={cn(
             innerCardStyles,
-            "col-span-1 grid-cols-5 text-gray-400 dark:text-gray-400 transform duration-500 transition-all hover:justify-items-center cursor-pointer"
+            "col-span-1 grid-cols-5 text-gray-400 dark:text-gray-400 transform duration-500 transition-all hover:justify-items-end cursor-pointer"
           )}
         >
           <div className="col-span-3 flex justify-end">

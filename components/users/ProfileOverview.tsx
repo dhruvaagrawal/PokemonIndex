@@ -31,7 +31,7 @@ interface ProfileOverviewProps extends HTMLAttributes<HTMLDivElement> {}
 const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
   return (
     <div className={cn(cardStyles, className, "grid-cols-6 auto-rows-min p-4")}>
-      <div className="lg:col-span-1">
+      <div className="flex lg:col-span-1 items-center">
         <Image
           src="/assets/user.jpg"
           alt="User"
@@ -40,7 +40,7 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
           className="rounded-lg"
         />
       </div>
-      <div className="flex flex-col lg:col-span-5 flex-auto">
+      <div className="flex flex-col lg:col-span-5 flex-auto ml-4">
         <div className="grid grid-cols-2 my-2 gap-4">
           <div className="flex col-span-2 justify-center space-x-4">
             <div className="text-center">
@@ -52,9 +52,7 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
               <Badge variant="outline">Twitter</Badge>
             </div>
           </div>
-          <div
-            className={cn(innerCardStyles, "col-span-2 p-2 ml-2 text-center")}
-          >
+          <div className={cn(innerCardStyles, "col-span-full p-2 text-center")}>
             <blockquote className="italic text-md text-gray-500">
               <Balancer>
                 &#8220; just a guy, coding his way, through this messed up
@@ -62,19 +60,12 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
               </Balancer>
             </blockquote>
           </div>
-          <div className="ml-2 col-span-2">
-            <Card
-              className={cn(
-                innerCardStyles,
-                "flex overflow-auto p-2 space-x-4"
-              )}
-            >
-              {dummyBadgesArray.map(({ name, image }) => (
-                <div className="rounded-full">
-                  <Image src={image} alt={name} width={90} height={40} />
-                </div>
-              ))}
-            </Card>
+          <div className={cn("py-2 col-span-1 flex overflow-auto space-x-4")}>
+            {dummyBadgesArray.map(({ name, image }) => (
+              <div className={cn(innerCardStyles)}>
+                <Image src={image} alt={name} width={90} height={40} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
