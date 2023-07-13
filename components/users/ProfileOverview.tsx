@@ -2,6 +2,7 @@ import { FC, HTMLAttributes } from "react"
 import Image from "next/image"
 import { Balancer } from "react-wrap-balancer"
 
+import { cardStyles, innerCardStyles } from "@/config/common.styles"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
@@ -29,19 +30,14 @@ interface ProfileOverviewProps extends HTMLAttributes<HTMLDivElement> {}
 
 const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
   return (
-    <div
-      className={cn(
-        "rounded-lg border-transparent shadow-xl bg-white text-slate-950 dark:shadow-lg dark:shadow-slate-800 dark:bg-background dark:text-slate-50 grid grid-cols-6 auto-rows-min p-4",
-        className
-      )}
-    >
+    <div className={cn(cardStyles, className, "grid-cols-6 auto-rows-min p-4")}>
       <div className="lg:col-span-1">
         <Image
           src="/assets/user.jpg"
           alt="User"
           height={200}
           width={200}
-          className="rounded-lg shadow-2xl"
+          className="rounded-lg"
         />
       </div>
       <div className="flex flex-col lg:col-span-5 flex-auto">
@@ -56,16 +52,23 @@ const ProfileOverview: FC<ProfileOverviewProps> = ({ className }) => {
               <Badge variant="outline">Twitter</Badge>
             </div>
           </div>
-          <div className="col-span-2 p-2 ml-2 text-center rounded-md border dark:border-slate-800 dark:bg-background dark:text-slate-50">
+          <div
+            className={cn(innerCardStyles, "col-span-2 p-2 ml-2 text-center")}
+          >
             <blockquote className="italic text-md text-gray-500">
               <Balancer>
                 &#8220; just a guy, coding his way, through this messed up
-                world, one incorrectly labelled variable at a time.&#8221;
+                world, one incorrectly labelled variable at a time. &#8221;
               </Balancer>
             </blockquote>
           </div>
           <div className="ml-2 col-span-2">
-            <Card className="flex flex-grow overflow-auto p-2 space-x-4">
+            <Card
+              className={cn(
+                innerCardStyles,
+                "flex overflow-auto p-2 space-x-4"
+              )}
+            >
               {dummyBadgesArray.map(({ name, image }) => (
                 <div className="rounded-full">
                   <Image src={image} alt={name} width={90} height={40} />
