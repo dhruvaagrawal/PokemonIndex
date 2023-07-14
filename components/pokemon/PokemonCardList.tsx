@@ -16,7 +16,7 @@ const PokemonCardList: FC<PokemonCardListProps> = async ({}) => {
 
   const pokemonUrlPairList: PokemonNameURLPair[] = data.results
   return (
-    <div className="m-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-4">
+    <div className="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-4">
       {pokemonUrlPairList.map(({ name }) => {
         return <PokemonCard key={name} pokemonName={name} />
       })}

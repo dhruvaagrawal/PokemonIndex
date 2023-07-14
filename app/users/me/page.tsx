@@ -9,9 +9,9 @@ interface MeProps {}
 
 const Me: FC<MeProps> = ({}) => {
   return (
-    <div className="p-2">
+    <div>
       <Navbar />
-      <div className="mt-4 mx-4 grid grid-cols-4 gap-4">
+      <div className="mt-4 grid grid-cols-4 gap-4">
         <div className="flex flex-col lg:col-span-3 gap-4">
           <ProfileOverview />
           <FavouritePokemons />
