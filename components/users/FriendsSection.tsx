@@ -74,13 +74,21 @@ const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
           </div>
         </div>
       </div>
-      <div className={cn(cardStyles, "py-4 gap-4")}>
-        <p className="text-center text-xl font-semibold">
-          People w/ Most Interactions
-        </p>
-        <div className="space-y-6 py-4">
+      <div className={cn(cardStyles, "p-4 gap-4")}>
+        <div className="grid grid-cols-3">
+          <p className="text-xl font-semibold col-span-2">
+            People w/ Most Interactions
+          </p>
+          <Link
+            href="/users/me/requests"
+            className="text-blue-500 text-sm text-end"
+          >
+            View More
+          </Link>
+        </div>
+        <div>
           {friends.map(({ id, name, age }) => (
-            <div className="h-auto rounded-md">
+            <div className="h-auto rounded-md hover:bg-pastel-yellow-200 p-4 hover:shadow-lg">
               <div className="grid grid-cols-5 h-full gap-4">
                 <div className="flex col-span-1 justify-end items-start">
                   <Avatar>
@@ -91,11 +99,11 @@ const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="flex flex-col col-span-2 gap-1">
+                <div className="flex flex-col col-span-3 gap-1">
                   <p className="text-md font-medium leading-none">{name}</p>
                   <p className="text-xs text-gray-500">Suggested for you</p>
                 </div>
-                <div className="col-span-2 flex justify-center">
+                <div className="col-span-1 flex justify-start">
                   <Button
                     size="sm"
                     className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full bg-pastel-blue-300 text-blue-900 hover:text-white dark:hover:text-black"
@@ -108,13 +116,42 @@ const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
           ))}
         </div>
       </div>
-      <div className={cn(cardStyles, "p-4")}>
-        <p className="text-center text-xl font-semibold">Recent Activity</p>
-        <div className="space-y-2">
-          {" "}
+      <div className={cn(cardStyles, "p-4 gap-4")}>
+        <div className="grid grid-cols-3">
+          <p className="text-xl font-semibold col-span-2">Recent Activity</p>
+          <Link
+            href="/users/me/requests"
+            className="text-blue-500 text-sm text-end"
+          >
+            View More
+          </Link>
+        </div>
+        <div>
           {friends.map(({ id, name, age }) => (
-            <div key={id} className="h-10 flex items-center justify-center">
-              {name}: {age}
+            <div className="h-auto rounded-md hover:bg-pastel-purple-200 p-4 hover:shadow-lg">
+              <div className="grid grid-cols-5 h-full gap-4">
+                <div className="flex col-span-1 justify-end items-start">
+                  <Avatar>
+                    <AvatarImage
+                      src="https://github.com/shadcn.png"
+                      alt="@shadcn"
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </div>
+                <div className="flex flex-col col-span-3 gap-1">
+                  <p className="text-md font-medium leading-none">{name}</p>
+                  <p className="text-xs text-gray-500">Suggested for you</p>
+                </div>
+                <div className="col-span-1 flex justify-start">
+                  <Button
+                    size="sm"
+                    className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full bg-pastel-blue-300 text-blue-900 hover:text-white dark:hover:text-black"
+                  >
+                    <UserPlus2 className="text-lg" />
+                  </Button>
+                </div>
+              </div>
             </div>
           ))}
         </div>
