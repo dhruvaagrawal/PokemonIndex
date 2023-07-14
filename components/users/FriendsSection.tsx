@@ -70,9 +70,7 @@ const FriendsSection: FC<FriendsSectionProps> = ({ className }) => {
                 </Button>
               </div>
             </div>
-            <div>
-              <p className="text-muted-foreground text-xs">2 hr ago</p>
-            </div>
+            <p className="text-muted-foreground text-xs">2 hr ago</p>
           </div>
         </div>
       </div>

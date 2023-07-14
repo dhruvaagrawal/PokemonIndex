@@ -6,6 +6,7 @@ import FavouritePokemons from "@/components/users/FavouritePokemons"
 import FriendsSection from "@/components/users/FriendsSection"
 import PokemonComparisonChart from "@/components/users/PokemonComparisonChart"
 import ProfileOverview from "@/components/users/ProfileOverview"
+import TradingChart from "@/components/users/TradingChart"
 
 interface MeProps {}
 
@@ -19,7 +20,8 @@ const Me: FC<MeProps> = ({}) => {
           <FavouritePokemons />
           <div className="flex flex-grow gap-4">
             <PokemonComparisonChart className="flex-grow" />
-            <ActivityChart className="flex-grow" />
+            {/* <ActivityChart className="flex-grow" /> */}
+            {/* <TradingChart className="flex-grow" /> */}
           </div>
         </div>
         <div className="lg:col-span-1 flex">
